@@ -1,0 +1,28 @@
+{
+  "name": "ChatRealTime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truong19992017/ChatRealTime.git"
+  },
+  "keywords": [],
+  "author": "ChatRealTime",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/truong19992017/ChatRealTime/issues"
+  },
+  "homepage": "https://github.com/truong19992017/ChatRealTime#readme",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "handlebars": "^4.7.6",
+    "hbs": "^4.1.1"
+  }
+}
