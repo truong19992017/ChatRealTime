@@ -47,7 +47,7 @@ io.on('connection', function (socket) {
         {
             socket.username = data;
             manguser.push(data);
-            socket.emit("dangnhapthanhcong", data)
+            socket.emit("dangnhapthanhcong",  socket.username)
             io.sockets.emit("guidanhsachuser", manguser)
         }
     });
@@ -62,7 +62,15 @@ io.on('connection', function (socket) {
             manguser.indexOf(socket.username), 1
         );
         io.sockets.emit("guidanhsachuser", manguser)
-    })
+    });
+
+    // socket.on("logout", function(){
+    //     console.log(socket.id + " ngat ket noi");
+    //     manguser.splice(
+    //         manguser.indexOf(socket.username), 1
+    //     );
+    //     io.sockets.emit("guidanhsachuser", manguser)
+    // })
 });
 
 // tao 1 socket server voi port 3000

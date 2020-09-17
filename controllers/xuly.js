@@ -2,13 +2,17 @@ const socket = io.connect("http://localhost:3000")
 
 $(document).ready(function(){
     $("#login").show();
-    $("#mess").hide();
+    $("#mess1").hide();
     $("#login-btn").click(function(){
         socket.emit("guiuserlenclient", $("#text-name").val());
     });
     $("#btn-chat").click(function(){
         socket.emit("guichatlensever", $("#text").val());
     });
+
+    // $("#logout").click(function(){
+    //     socket.emit("logout");
+    // });
 });
 
 socket.on("dangnhapthatbai", function(){
@@ -17,18 +21,19 @@ socket.on("dangnhapthatbai", function(){
 
 socket.on("dangnhapthanhcong", function(data){
     $("#login").hide(2000);
-    $("#mess").show(1000);
+    $("#mess1").show(1000);
+    $("#ten").append("<h3>" + data + "</h3>")
 });
 
 socket.on("guidanhsachuser", function(data){
     $("#user").html("");
     data.forEach(function(i){
-        $("#user").append("<div class='ctuser'>" + i + "</div>")
+        $("#user").append("<div class='index-user'> <span>" + i + "</span></div>")
     });
 });
 
 
 
 socket.on("guichotatcauser", function(data){
-    $("#chat").append("<div class='chat-1'>" + data.user + ": " + data.data + "</div>")
+    $("#mess-result").append("<div class='index-mess-result'>" + data.user + ": " + data.data + "</div>")
 })
